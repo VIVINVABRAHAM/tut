@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <button type="button" onclick="location.href='{% url 'log' %}'">Logout</button>
+    </div>
+    <h2>Create Daily Progress Report</h2>
+    <form action="post_create" method="post">
+        {% csrf_token %}
+        Work Assigned :
+        <input type="text" name="work" required><br><br>
+        Prgress:
+        <textarea rows="5" cols="40" name="progress"></textarea>
+        <br><br>
+        Document Upload:
+        <input type="file" name="files[]" id="files" required>
+        <input type="hidden" name="url" id="url">
+        <button type="button" onclick="uploadimage()">Upload</button><br><br>
+        <input type="submit" value="Submit" required>
+
+    </form>
+    
+</body>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var config = {
+        apiKey: "AIzaSyA2-7Wlf4al_XdGnaqEfuWB8L0AitPAGPk",
+        authDomain: "sample-3d577.firebaseapp.com",
+        databaseURL: "https://sample-3d577-default-rtdb.firebaseio.com",
+        storageBucket: "sample-3d577.appspot.com",
+        messagingSenderId: "817731223919"
+      };
+      firebase.initializeApp(config);
+
+      function uploadimage(){
+        
+      var storage = firebase.storage();
+      var file = document.getElementById("files").files[0];
+
+      var storageRef = storage.ref();
+
+      var thisref = storageRef.child(file.name).put(file);
+
+      thisref.on('state_changed',function(snapshot){
+      console.log("file uploaded successfully")
+      },
+      function(error) {
+      },
+      function() {
+      var downloadURL = thisref.snapshot.downloadURL;
+      console.log("got url");
+      document.getElementById("url").value = downloadURL
+      alert("file ploaded successfully");
+      });
+     
+
+    
+      
+
+
+      }
+
+      
+
+</script>
+</html>

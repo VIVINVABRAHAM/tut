@@ -1,0 +1,771 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Evaluation | Tit-Tat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ion.rangeSlider.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .but {
+            position: absolute;
+            top: 1875px;
+            right: 640px;
+            width: 50px;
+        }
+        
+        .but.main-btn {
+            position: relative;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body class="gray-bg">
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header_area">
+        <div class="header_navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index-2.html">
+                        <img src="{% static 'images/logo.png' %}" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto">
+                            <li></li>
+                            <li>
+                                <a class="active" href="#">Evaluation <span class="line"></span></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="navbar_btn">
+                        <ul>
+                            <li>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, {{nam}}</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <ul>
+
+                                            <li><a href="/account/evaluator_dash"><i class="fal fa-star"></i>
+                                                    Advertisements
+                                                </a></li>
+                                            <li><a href="/account/eval_pro_details/{{per.productid}}/{{per.userid}}"><i
+                                                        class="fal fa-star"></i>
+                                                    Current Product
+                                                </a></li>
+                                            <li><a href="{% url 'log' %}"><i class="fal fa-sign-out"></i> Sign Out</a>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </li>
+
+                        </ul>
+
+
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="page_banner bg_cover" style="background-image: url({% static 'images/page-banner.jpg' %})">
+            <div class="container">
+                <div class="page_banner_content">
+                    {% if k.category == "Jewellery & Accessories" %}
+                    <h3 class="title"> {{k.material}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Electronics" %}
+                    <h3 class="title"> {{k.brand}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Furnitures" %}
+                    <h3 class="title"> {{k.material}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Phone & Accesories" %}
+                    <h3 class="title"> {{k.brand}} {{k.model}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Camera & Accesories" %}
+                    <h3 class="title"> {{k.brand}} {{k.model}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Vehicles" %}
+                    <h3 class="title"> {{k.brand}} {{k.model}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Sports & Gaming" %}
+                    <h3 class="title"> {{k.brand}} {{k.model}} {{k.title}}</h3>
+                    {% endif %} {% if k.category == "Rare Products" %}
+                    <h3 class="title"> {{k.brand}} {{k.model}} {{k.title}}</h3>
+                    {% endif %}
+                    <ul class="breadcrumb">
+
+                        <li><a href="/account/evaluator_dash">Evaluator Dashboard</a></li>
+                        {% if k.category == "Jewellery & Accessories" %}
+                        <li>{{k.material}} {{k.title}}</li>
+                        {% endif %} {% if k.category == "Electronics" %}
+                        <li>{{k.brand}} {{k.title}}</li>
+                        {% endif %} {% if k.category == "Furnitures" %}
+                        <li>{{k.material}} {{k.title}}</li>
+                        {% endif %} {% if k.category == "Phone & Accesories" %}
+                        <li>{{k.brand}} {{k.model}} {{k.title}}</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="post_ads_page pt-70 pb-120">
+        <div class="container">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="post_form mt-50">
+                            <center> <u>
+                                    <h3>Criteria for {{k.category}} Evaluation</h3>
+                                </u></center><br>
+                            <ul>
+                                <li>
+                                    <h6>All the details of the product should be evaluated honestly</h6>
+                                </li><br>
+                                <li>
+                                    <h6>Price is considered in indian rupees, The coins will be same as the price
+                                    </h6>
+                                </li><br> {% if k.category == "Jewellery & Accessories" %}
+                                <li>
+                                    <h6>
+                                        Per dents small to large deprecision - 1% to 2%<br> Per scratch small to large deprecision - 1% to 52%<br>
+
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Totally pure Gold/Platinum will get the same market rate, at the time of evaluation </h6>
+                                </li><br> {% endif %} {% if k.category == "Furnitures" %}
+                                <li>
+                                    <h6>Per year deprecision - 2%<br> Per popular to Quality materials to non quality materials- 2% to 10%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br>
+
+
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>If the material used is wood there will be a evaluation based on the market price only</h6>
+                                </li><br> {% endif %} {% if k.category == "Camera & Accesories" %}
+                                <li>
+                                    <h6>Per year deprecision - 1%<br> Per popular to non popular brand deprecision- 2% to 10%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br> Per second user to
+                                        fifth user deprecision - 2% to 10%<br> Per working mild to poor condition deprecision - 10% to 20%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Evaluation based on the product market value, power of the lense, Quality of the picture taken,Depth of the image all are must consider</h6>
+                                </li><br> {% endif %} {% if k.category == "Phone & Accessories" %}
+                                <li>
+                                    <h6>Per year deprecision - 1%<br> Per popular to non popular brand deprecision- 2% to 10%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br> Per second user to
+                                        fifth user deprecision - 2% to 10%<br> Per working mild to poor condition deprecision - 10% to 20%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Based on camera, sound, memory, Specifications the product get evaluated </h6>
+                                </li><br> {% endif %} {% if k.category == "Electronics" %}
+                                <li>
+                                    <h6>Per year deprecision - 2%<br> Per popular to non popular brand deprecision- 2% to 10%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br> Per second user to
+                                        fifth user deprecision - 2% to 10%<br> Per working mild to poor condition deprecision - 10% to 20%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Based on the Specifications, the product get evaluated </h6>
+                                </li><br> {% endif %} {% if fk.category == "Vehicles" %}
+                                <li>
+                                    <h6>Per year deprecision - 4%<br> Per popular to non popular brand deprecision- 2% to 10%<br> Per dents, teardown from small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br> Per
+                                        second user to fifth user deprecision - 2% to 10%<br> Per working mild to poor condition deprecision - 10% to 20%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Based on the tear of the vehicle and the specification the product get evaluated
+                                    </h6>
+                                </li><br> {% endif %} {% if k.category == "Sports & Gaming" %}
+                                <li>
+                                    <h6>Per year deprecision - 2%<br> Per popular to non popular brand deprecision- 2% to 10%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%<br> Per second user to
+                                        fifth user deprecision - 2% to 10%<br> Per working mild to poor condition deprecision - 10% to 20%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Based on the tear of the sports materials and the specification the product get evaluatef </h6>
+                                </li><br> {% endif %} {% if k.category == "Rare Products" %}
+                                <li>
+                                    <h6>
+                                        Per popular to non popular brand deprecision- 0% to 5%<br> Per dents small to large deprecision - 1% to 5%<br> Per scratch small to large deprecision - 1% to 5%
+                                        <br> Per working mild to poor condition deprecision - 5% to 10%
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Based on the quality of the product the product get evaluated if it most popular and not available to buy then it has more value. </h6>
+                                </li><br> {% endif %}
+                                <li>
+                                    <h6>Based on dents,scratches etc.. the value of the product get reduced</h6>
+                                </li><br>
+                                <li>
+                                    <h6>Special price and evaluation for rare products</h6>
+                                </li><br>
+                                <li>
+                                    <h6>Valuation will be based on the product details updated,online evaluation/offline evaluation
+                                    </h6>
+                                </li><br>
+                                <li>
+                                    <h6>Evaluator predicted coins will be the final value/coins of the product
+                                    </h6>
+                                </li><br>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="post_form mt-50">
+                            <form enctype="multipart/form-data" name="myform" action="/account/evaluating" method="post">
+
+
+
+                                {% csrf_token %}
+                                <div class="post_title">
+                                    <h5 class="title">Product Details</h5>
+                                </div>
+                                <div class="post_title">
+                                    <h5>
+                                        <div class="single_form">
+                                            <select name="mode">
+                                            <option value="none"> <h5 class="title">Evaluation Mode</h5></option>
+                                            <option value="online"><h5 class="title">Online</h5></option>
+                                            <option value="onsite"><h5 class="title">OnSite</h5></option>
+
+
+                                        </select>
+                                        </div>
+                                    </h5>
+                                </div>
+
+
+
+                                <div class="single_for">
+                                    <br> Category : {{k.category}}<br><br>
+                                    <input type="radio" value="Yes" id="no" name="Category" checked> Yes
+                                    <input type="radio" value="No" id="Yes" name="Category"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Product : {{k.title}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Product" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Product"> No
+                                </div>
+
+                                {% if k.category == "Computer & Accessories" %}
+
+
+                                <div class="single_for">
+                                    <br> Processor Used : {{k.material}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Processor Used" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Processor Used"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Net Weight in grams : {{k.weight}}gm<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Net Weight in grams" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Net Weight in grams"> No
+
+
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                <div class="single_form">
+                                    <br> Stones : {{k.stones}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Stones" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Stones"> No
+                                </div>
+
+                                {% endif %} {% if k.category == "Furnitures" %}
+
+                                <div class="single_for">
+                                    <br> Material Used : {{k.material}}<br><br>
+
+
+                                    <input type="radio" value="Yes" id="Yes" name="Material Used" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Material Used"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Design : {{k.Design_works}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Design Verified" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Design Verified"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br>Current Condition : {{k.condition}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+
+
+
+                                {% endif %} {% if k.category == "Phone & Accessories" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+
+                                {% endif %} {% if k.category == "Camera & Accesories" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                {% endif %} {% if k.category == "Electronics" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                {% endif %} {% if k.category == "Vehicles" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                {% endif %} {% if k.category == "Sports & Gaming" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Net. weight : {{k.weight}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Net. weight" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Net. weight"> No
+                                </div>
+
+                                {% endif %} {% if k.category == "Rare Products" %}
+
+                                <div class="single_for">
+                                    <br> Brand : {{k.brand}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Brand" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Brand"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> Scratch and Dents if any : {{k.scratch}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Scratch and Dents if any" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Scratch and Dents if any"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Model : {{k.model}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Model" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Model"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Current Condition : {{k.condition}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="Current Condition" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Current Condition"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> Color : {{k.color}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Color" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Color"> No
+                                </div>
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+                                </div>
+
+                                <div class="single_for">
+                                    <br> User Type : {{k.type}}<br><br>
+
+                                    <input type="radio" value="Yes" id="Yes" name="User Type" checked> Yes
+                                    <input type="radio" value="No" id="No" name="User Type"> No
+
+                                </div>
+                                {% endif %}
+
+
+
+
+                                <div class="single_for">
+                                    <br> Year of Manufacture: {{k.yom}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Year of Manufacture" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Year of Manufacture"> No
+
+                                </div>
+                                <div class="single_for">
+                                    <br> Buy time price : {{k.buy_price}}<br><br>
+                                    <input type="radio" value="Yes" id="Yes" name="Buy time price" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Buy time price"> No
+
+                                </div>
+                                <div class="single_for">
+                                    <br>Demanded price : {{k.cu_price}} <br> <br>
+                                    <input type="radio" value="Yes" id="Yes" name="Demanded price" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Demanded price"> No
+                                    <br>
+                                </div>
+
+                                <div class="single_for">
+                                    <br>Description : {{k.adpost}} <br> <br>
+                                    <input type="radio" value="Yes" id="Yes" name="Description" checked> Yes
+                                    <input type="radio" value="No" id="No" name="Description"> No
+                                </div>
+                                <input type="hidden" value="{{userid}}" name="userid">
+                                <input type="hidden" value="{{per.productid}}" name="pid">
+
+                                <div class="single_form" required>
+                                    <textarea placeholder="Evaluation in detail" name="details"></textarea>
+                                </div>
+                                <div class="single_form">
+                                    <input type="submit" value="submit" class="main-btn" onclick="return valid();">
+
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <script>
+                        function valid() {
+
+                            var mode = document.myform.state.value;
+                            var details = document.myform.details.value;
+
+
+                            if (mode == 'none') {
+                                alert('please select the state');
+                                return false;
+                            }
+                            if (details == '') {
+                                alert('please enter the evaluation details');
+                                return false;
+                            } else {
+                                return true;
+                            }
+
+                        }
+                    </script>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4">
+
+
+        </div>
+
+        </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer_area">
+
+        <div class="footer_copyright pt-15 pb-30">
+            <div class="container">
+                <div class="footer_copyright_wrapper text-center d-sm-flex justify-content-between align-items-center">
+                    <div class="copyright mt-15">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDesigned and Developed by VivinVAbraham</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+
+
+
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/slick.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+    <script src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+
+    <script src="{% static 'js/ajax-contact.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,325 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Product Details | Tit-Tat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ion.rangeSlider.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="gray-bg">
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="header_area">
+        <div class="header_navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index-2.html">
+                        <img src="{% static 'images/logo.png' %}" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto">
+                            <li>
+                                <a href="/account/cus_home">Home <span class="line"></span></a>
+                            </li>
+                            <li>
+                                <a href="categories.html">Categories <span class="line"></span></a>
+                            </li>
+                            <li>
+                                <a href="#">Activities <i class="fa fa-angle-down"></i> <span class="line"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a class="active" href="#">Status <i class="fa fa-angle-down"></i> <span
+                                        class="line"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html"></a></li>
+                                    <li><a href="blog-details.html">Featured</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact <span class="line"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar_btn">
+                        <ul>
+                            <li>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">{{nam}} </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <ul>
+                                            <li><a href="/account/profilesettings"><i class="fal fa-cog"></i> Profile
+                                                    Settings</a></li>
+                                            <li><a href="/account/myads"><i class="fal fa-layer-group"></i> My Ads</a>
+                                            </li>
+
+                                            <li><a href="{% url 'log' %}"><i class="fal fa-sign-out"></i> Sign Out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a class="sign-up" href="/account/postadd">Post Ads</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="page_banner bg_cover" style="background-image: url({% static 'images/page-banner.jpg' %})">
+            <div class="container">
+
+
+                <div class="page_banner_content">
+                    <h3 class="title">{{k.brand}} {{k.title}}</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="/account/myads">My Ads</a></li>
+                        <li>{{k.brand}} {{k.title}}</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </header>
+
+
+    <section class="product_details_page pt-70 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="product_details mt-50">
+                    <div class="product_image">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="details-1" role="tabpanel"
+                                aria-labelledby="details-1-tab">
+                                <img src="{{k.url}}" alt="product details">
+                                <ul class="sticker">
+                                    <li>Featured</li>
+                                    <li>New</li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-pane fade" id="details-2" role="tabpanel" aria-labelledby="details-2-tab">
+                                <img src="{{k.url1}}" alt="product details">
+                            </div>
+                            <div class="tab-pane fade" id="details-3" role="tabpanel" aria-labelledby="details-3-tab">
+                                <img src="{{k.url2}}" alt="product details">
+                            </div>
+                            <div class="tab-pane fade" id="details-4" role="tabpanel" aria-labelledby="details-4-tab">
+                                <img src="{{k.url3}}" alt="product details">
+                            </div>
+                        </div>
+                        <ul class="nav" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="active" id="details-1-tab" data-toggle="tab" href="#details-1" role="tab"
+                                    aria-controls="details-1" aria-selected="true">
+                                    <img src="{{k.url}}" alt="product details">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="details-2-tab" data-toggle="tab" href="#details-2" role="tab"
+                                    aria-controls="details-2" aria-selected="false">
+                                    <img src="{{k.url1}}" alt="product details">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="details-3-tab" data-toggle="tab" href="#details-3" role="tab"
+                                    aria-controls="details-3" aria-selected="false">
+                                    <img src="{{k.url2}}" alt="product details">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="details-4-tab" data-toggle="tab" href="#details-4" role="tab"
+                                    aria-controls="details-4" aria-selected="false">
+                                    <img src="{{k.url3}}" alt="product details">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product_details_meta d-sm-flex justify-content-between align-items-end">
+                        <div class="product_price">
+                            <span class="price">{{k.cu_price}} Coins</span>
+
+                        </div>
+                        <div class="product_date">
+                            <ul class="meta">
+                                <li><i class="fa fa-clock-o"></i><a href="#">25 January, 2023</a><a href="#">10.00
+                                        AM</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="product_details_features">
+
+                        <div class="details_features_wrapper d-flex flex-wrap">
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Brand :</h6>
+                                <p>{{k.brand}}</p>
+                            </div>
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Condition :</h6>
+                                <p>{{k.condition}}</p>
+                            </div>
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Category :</h6>
+                                <p>{{k.category}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="product_details_description">
+                        <div class="product_details_title">
+                            <h5 class="title">Description :</h5>
+                        </div>
+                        <p>{{k.adpost}}</p>
+                    </div>
+
+                </div>
+
+
+                <div class="product_details mt-50">
+
+                    <div class="product_details_meta d-sm-flex justify-content-between align-items-end">
+                        <div class="product_price">
+                            <span class="price" style="text-align: center; font-size: 30px; color:chartreuse">Demanded : {{k.demtitle}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="product_details_features">
+
+                        <div class="details_features_wrapper d-flex flex-wrap">
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Brand :</h6>
+                                <p>{{k.dembrand}}</p>
+                            </div>
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Year of Manufacture from :</h6>
+                                <p>{{k.demyom}}</p>
+                            </div>
+                            <div class="single_features d-flex">
+                                <h6 class="features_title">Category :</h6>
+                                <p>{{k.demcategory}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="footer_area">
+
+        <div class="footer_copyright pt-15 pb-30">
+            <div class="container">
+                <div class="footer_copyright_wrapper text-center d-sm-flex justify-content-between align-items-center">
+                    <div class="copyright mt-15">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDesigned and
+                            Developed by VivinVAbraham</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+
+
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/slick.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+    <script src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+
+    <script src="{% static 'js/ajax-contact.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+
+</html>

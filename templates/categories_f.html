@@ -1,0 +1,298 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Categories | Tit-Tat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ion.rangeSlider.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="gray-bg">
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header class="header_area">
+        <div class="header_navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="cus_home">
+                        <img src="{% static 'images/logo.png' %}" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul class="navbar-nav m-auto">
+                            <li>
+                                <a href="cus_home">Home <span class="line"></span></a>
+                            </li>
+                            <li>
+                                <a class="active" href="categories">Categories <span class="line"></span></a>
+                            </li>
+                            <li>
+                                <a href="#">Activities <i class="fa fa-angle-down"></i> <span class="line"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="about">Content</a></li>
+
+                                    <li><a href="faq">FAQ</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="product.html">Products <i class="fa fa-angle-down"></i> <span
+                                        class="line"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="requested_products">Requested Products</a></li>
+                                    <li><a href="product_history">Ads History</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="contact">Contact <span class="line"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="navbar_btn">
+                        <ul>
+                            <li>
+                                <div class="dropdown">
+                                    {% if request.session.name %}
+                                    <a href="signin.html" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello,
+                                        {{request.session.name}}</a> {% else %}
+
+                                    <a href="signin.html" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account
+                                        </a> {% endif %}
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <ul>
+
+                                            <li><a href="profilesettings"><i class="fas fa-user-alt"></i>Profile
+                                                    </a></li>
+                                            <li><a href="myads"><i class="fal fa-layer-group"></i> My Ads</a></li>
+                                            <li><a href="{% url 'log' %}"><i class="fal fa-sign-out"></i> Sign Out</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a class="sign-up" href="categories_f">Post Ads</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="page_banner bg_cover" style="background-image: url({% static 'images/page-banner.jpg' %})">
+            <div class="container">
+                <div class="page_banner_content">
+                    <h3 class="title">Select Your Category</h3>
+                    <ul class="breadcrumb">
+                        <li><a href="cus_home">Home</a></li>
+                        <li>Select Your Category</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="categories_page pt-70 pb-120">
+        <div class="container">
+            <div class="categories_top_bar d-flex align-items-center justify-content-between pb-30">
+
+
+            </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-laptop"></i>
+                                </div>
+                                <div class=" categories_content ">
+                                    <h5 class="title ">Computer & Accessories</h5>
+
+                                </div>
+                                <a href="addpost/Computer & Accessories"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-home"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Furnitures</h5>
+
+                                </div>
+                                <a href="addpost/Furnitures"></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-mobile-alt"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Phone & Accessories</h5>
+                                </div>
+                                <a href="addpost/Phone & Accessories"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-camera-retro"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Camera & Accesories</h5>
+
+
+                                </div>
+                                <a href="addpost/Camera & Accesories"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-tv"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Electronics</h5>
+
+
+                                </div>
+                                <a href="addpost/Electronics"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-motorcycle"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Vehicles</h5>
+                                </div>
+                                <a href="addpost/Vehicles"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-bullseye-arrow"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Sports & Gaming</h5>
+                                </div>
+                                <a href="addpost/Sports & Gaming"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="single_categories text-center mt-30">
+                                <div class="categories_icon">
+                                    <i class="fal fa-watch"></i>
+                                </div>
+                                <div class="categories_content">
+                                    <h5 class="title">Rare Products</h5>
+                                </div>
+                                <a href="addpost/Rare Products"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="footer_area">
+
+        <div class="footer_copyright pt-15 pb-30">
+            <div class="container">
+                <div class="footer_copyright_wrapper text-center d-sm-flex justify-content-between align-items-center">
+                    <div class="copyright mt-15">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDesigned and Developed by VivinVAbraham</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+
+
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.7.1.min.js' %}"></script>
+
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/slick.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+    <script src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+
+    <script src="{% static 'js/ajax-contact.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+
+
+
+</html>
